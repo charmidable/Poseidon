@@ -23,7 +23,17 @@ public class User
 //                                                         one upper case letter
 //                                                         one special character
 //                      """)
-    @Password
+//    @Password
+    @Pattern.List
+    (
+        {
+            @Pattern(regexp = "(?=.*\\d)"                           , message = "Must contain one number" ),
+            @Pattern(regexp = "(?=.*[a-z])"                         , message = "Must contain one lower case letter" ),
+            @Pattern(regexp = "(?=.*[A-Z])"                         , message = "Must contain one upper case letter" ),
+            @Pattern(regexp = "(?=.*[()\\-_|&$@^+=#%])(?=\\S+$)"    , message = "Must contain one upper case letter" ),
+            @Pattern(regexp = ".{8,}"                               , message = "Must be at least 8 characters long" )
+        }
+    )
     private String password;
     @NotBlank(message = "FullName is mandatory")
     private String fullname;

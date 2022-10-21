@@ -30,6 +30,7 @@ public class BidListController
         this.bidListService = bidListService;
     }
 
+
     //=========================
     //= Configuration methods =
     //=========================
@@ -89,3 +90,5 @@ public class BidListController
         return "redirect:/bidList/list";
     }
 }
+
+

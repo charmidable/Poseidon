@@ -304,4 +304,14 @@ public class BidList
     {
         this.side = side;
     }
+
+    @Override
+    public String toString()
+    {
+        return "BidList{" +
+                "BidListId=" + BidListId +
+                ", account='" + account + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

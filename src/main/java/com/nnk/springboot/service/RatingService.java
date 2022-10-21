@@ -9,6 +9,8 @@ import com.nnk.springboot.repositories.RatingRepository;
 import com.nnk.springboot.domain.Rating;
 
 
+
+
 @Service
 public class RatingService
 {

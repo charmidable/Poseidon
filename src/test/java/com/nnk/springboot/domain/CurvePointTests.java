@@ -1,9 +1,9 @@
-package com.nnk.springboot;
+package com.nnk.springboot.domain;
 
 import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.repositories.CurvePointRepository;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,5 +45,4 @@ public class CurvePointTests
         Optional<CurvePoint> curvePointList = curvePointRepository.findById(id);
         Assert.assertFalse(curvePointList.isPresent());
     }
-
 }
