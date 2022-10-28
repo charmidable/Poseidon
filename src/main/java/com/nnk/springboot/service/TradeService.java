@@ -26,6 +26,8 @@ public class TradeService
         this.tradeRepository = tradeRepository;
     }
 
+
+
     //=========================
     //=    Service methods    =
     //=========================

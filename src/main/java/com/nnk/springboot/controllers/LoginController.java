@@ -31,7 +31,6 @@ public class LoginController
     @GetMapping("login")
     public ModelAndView login()
     {
-        System.out.println("login() CALLED");
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
         return mav;

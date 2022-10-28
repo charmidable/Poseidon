@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class TradeController
 {
+
     //=========================
     //=      Attributes       =
     //=========================
@@ -24,7 +26,6 @@ public class TradeController
     //=========================
     //=     Constructors      =
     //=========================
-
     public TradeController(TradeService tradeService)
     {
         this.tradeService = tradeService;
@@ -37,7 +38,8 @@ public class TradeController
     @RequestMapping("/trade/list")
     public String home(Model model)
     {
-        model.addAttribute("tradeServices", tradeService.getAll());
+        List<Trade> tradeList = tradeService.getAll();
+        model.addAttribute("tradeList", tradeList);
         return "trade/list";
     }
 
@@ -53,10 +55,9 @@ public class TradeController
         if (!result.hasErrors())
         {
             tradeService.save(trade);
-            model.addAttribute("tradeServices", tradeService.getAll());
+            model.addAttribute("tradeList", tradeService.getAll());
             return "redirect:/trade/list";
         }
-
         return "trade/add";
     }
 
@@ -64,6 +65,7 @@ public class TradeController
     public String showUpdateForm(@PathVariable("id") Integer id, Model model)
     {
         Trade trade = tradeService.getById(id);
+        model.addAttribute("trade", trade);
         return "trade/update";
     }
 
@@ -75,18 +77,27 @@ public class TradeController
         {
             return "trade/update";
         }
-
-        trade.setTradeId(id);
-        tradeService.save(trade);
-        model.addAttribute("tradeServices", tradeService.getAll());
+        Trade trade1 = tradeService.save(trade);
+        if (trade1 != null)
+        {
+            model.addAttribute("tradeList", tradeService.getAll());
+        }
         return "redirect:/trade/list";
     }
 
     @GetMapping("/trade/delete/{id}")
     public String deleteTrade(@PathVariable("id") Integer id, Model model)
     {
-        tradeService.deleteById(id);
-        model.addAttribute("tradeServices", tradeService.getAll());
-        return "redirect:/trade/list";
+        Trade trade = tradeService.getById(id);
+        if (trade != null)
+        {
+            tradeService.deleteById(id);
+            model.addAttribute("tradeList", tradeService.getAll());
+            return "redirect:/trade/list";
+        }
+        else
+        {
+            throw new IllegalArgumentException("Invalid trade id " + id);
+        }
     }
 }

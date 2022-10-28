@@ -1,0 +1,72 @@
+'@startuml
+''https://plantuml.com/use-case-diagram
+'
+':Main Admin: as Admin
+'(Use the application) as (Use)
+'
+'User -> (Start)
+'User --> (Use)
+'
+'Admin ---> (Use)
+'
+'note right of Admin : This is an example.
+'
+'note right of (Use)
+'A note can also
+'be on several lines
+'end note
+'
+'note "This note is connected\nto several objects." as N2
+'(Start) .. N2
+'N2 .. (Use)
+
+
+
+
+'uc1 as (Authentification)
+'
+'usecase uc2 as "View.
+'--
+'BidList , Curve Point , Rating , Rule Name , Trade"
+'
+'
+'usecase uc3 as "Create , Delete , Update
+'--
+'BidList , Curve Point , Rating , Rule Name , Trade"
+'
+'
+'usecase uc4 as "View , Create , Delete , Update
+'--
+'User"
+'
+'
+'uc2 ..> uc1 : include
+'uc3 ..> uc1 : include
+'uc4 .right.> uc1 : include
+
+
+:OAuth2 User: as oa
+
+oa <|-down-- User
+
+User <|-down-- Admin
+
+'oa -> uc2
+'User -> uc3
+'Admin -> uc4
+
+
+
+
+'usecase UC1 as "You can use
+'several lines to define your usecase.
+'You can also use separators.
+'--
+'Several separators are possible."
+''==
+'And you can add titles:
+'..Conclusion..
+'This allows large description."
+
+
+@enduml

@@ -15,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 import com.nnk.springboot.Exception.EntityDoesNotExistException;
 import com.nnk.springboot.repositories.TradeRepository;
 
+
 class TradeServiceTest
 {
     @InjectMocks
@@ -31,17 +32,17 @@ class TradeServiceTest
     @Test
     void save()
     {
-        tradeService.save(new Trade("account", "type"));
+        tradeService.save(new Trade("account", "type", 10d));
         verify(tradeRepository, times(1)).save(any());
     }
 
     @Test
     void getByIdFindExistingEntity()
     {
-        when(tradeRepository.findById(1)).thenReturn(Optional.of(new Trade("account", "type")));
+        when(tradeRepository.findById(1)).thenReturn(Optional.of(new Trade("account", "type", 10d)));
         Trade trade = tradeService.getById(1);
         assertEquals("account", trade.getAccount());
-        assertEquals("type", trade.getDealType());
+        assertEquals("type", trade.getType());
     }
 
     @Test
@@ -60,7 +61,7 @@ class TradeServiceTest
     @Test
     void deleteById()
     {
-        when(tradeRepository.findById(1)).thenReturn(Optional.of(new Trade("account", "type")));
+        when(tradeRepository.findById(1)).thenReturn(Optional.of(new Trade("account", "type", 10d)));
         tradeService.deleteById(1);
         verify(tradeRepository, times(1)).deleteById(1);
     }

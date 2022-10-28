@@ -30,13 +30,12 @@ public class BidListController
         this.bidListService = bidListService;
     }
 
-
     //=========================
     //= Configuration methods =
     //=========================
 
     @RequestMapping("/bidList/list")
-    public String home(Model model)
+    public String getAllBiddList(Model model)
     {
         model.addAttribute("bidLists", bidListService.getAll());
         return "bidList/list";
@@ -49,14 +48,17 @@ public class BidListController
     }
 
     @PostMapping("/bidList/validate")
-    public String validate(@Valid BidList bid, BindingResult result, Model model)
+    public String addBid(@Valid BidList bid, BindingResult result, Model model)
     {
+        System.out.println("/bidList/validate CALLED");
         if (!result.hasErrors())
         {
             bidListService.save(bid);
             model.addAttribute("bidLists", bidListService.getAll());
+            System.out.println("/bidList/validate OK");
             return "redirect:/bidList/list";
         }
+        System.out.println("/bidList/validate ERROR");
         return "bidList/add";
     }
 
@@ -90,5 +92,3 @@ public class BidListController
         return "redirect:/bidList/list";
     }
 }
-
-
