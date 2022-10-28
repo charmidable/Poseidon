@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.nnk.springboot.controllers.BidListControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 13.892 s <<< FAILURE! - in com.nnk.springboot.controllers.BidListControllerTest
+updateBidList  Time elapsed: 0.365 s  <<< FAILURE!
+java.lang.AssertionError: Redirected URL expected:</bidList/list> but was:<null>
+	at com.nnk.springboot.controllers.BidListControllerTest.updateBidList(BidListControllerTest.java:110)
+
+updateById  Time elapsed: 0.01 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<403>
+	at com.nnk.springboot.controllers.BidListControllerTest.updateById(BidListControllerTest.java:99)
+
+validateBidList  Time elapsed: 0.01 s  <<< FAILURE!
+java.lang.AssertionError: Redirected URL expected:</bidList/list> but was:<null>
+	at com.nnk.springboot.controllers.BidListControllerTest.validateBidList(BidListControllerTest.java:88)
+

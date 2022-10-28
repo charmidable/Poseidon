@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.nnk.springboot.controllers.RuleNameControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.132 s <<< FAILURE! - in com.nnk.springboot.controllers.RuleNameControllerTest
+validateRuleName  Time elapsed: 0.009 s  <<< FAILURE!
+java.lang.AssertionError: Redirected URL expected:</ruleName/list> but was:<null>
+	at com.nnk.springboot.controllers.RuleNameControllerTest.validateRuleName(RuleNameControllerTest.java:94)
+
+updateRuleName  Time elapsed: 0.009 s  <<< FAILURE!
+java.lang.AssertionError: Redirected URL expected:</ruleName/list> but was:<null>
+	at com.nnk.springboot.controllers.RuleNameControllerTest.updateRuleName(RuleNameControllerTest.java:118)
+

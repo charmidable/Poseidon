@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.nnk.springboot.controllers.RatingControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.155 s <<< FAILURE! - in com.nnk.springboot.controllers.RatingControllerTest
+updateRating  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<403>
+	at com.nnk.springboot.controllers.RatingControllerTest.updateRating(RatingControllerTest.java:111)
+
+validateRating  Time elapsed: 0.009 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<302> but was:<403>
+	at com.nnk.springboot.controllers.RatingControllerTest.validateRating(RatingControllerTest.java:90)
+

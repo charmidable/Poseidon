@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.nnk.springboot.controllers.CurveControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.051 s <<< FAILURE! - in com.nnk.springboot.controllers.CurveControllerTest
+updateById  Time elapsed: 0.004 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<403>
+	at com.nnk.springboot.controllers.CurveControllerTest.updateById(CurveControllerTest.java:97)
+
+validateCurvePoint  Time elapsed: 0.005 s  <<< FAILURE!
+java.lang.AssertionError: Redirected URL expected:</curvePoint/list> but was:<null>
+	at com.nnk.springboot.controllers.CurveControllerTest.validateCurvePoint(CurveControllerTest.java:87)
+
+updateCurvePoint  Time elapsed: 0.004 s  <<< FAILURE!
+java.lang.AssertionError: Redirected URL expected:</curvePoint/list> but was:<null>
+	at com.nnk.springboot.controllers.CurveControllerTest.updateCurvePoint(CurveControllerTest.java:108)
+
