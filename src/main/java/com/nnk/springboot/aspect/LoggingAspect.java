@@ -13,8 +13,6 @@ import java.util.Arrays;
 @Slf4j
 public class LoggingAspect
 {
-//    private Logger logger = Logger.getLogger(LoggingAspect.class.getName());
-
     @Before("execution(* com.nnk.springboot.controllers.*.*(..))")
     public void logBeforeAllMethods(JoinPoint joinPoint)
     {

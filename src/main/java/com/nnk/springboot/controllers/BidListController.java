@@ -35,7 +35,7 @@ public class BidListController
     //=========================
 
     @RequestMapping("/bidList/list")
-    public String getAllBiddList(Model model)
+    public String getAllBidList(Model model)
     {
         model.addAttribute("bidLists", bidListService.getAll());
         return "bidList/list";
@@ -50,12 +50,10 @@ public class BidListController
     @PostMapping("/bidList/validate")
     public String addBid(@Valid BidList bid, BindingResult result, Model model)
     {
-        System.out.println("/bidList/validate CALLED");
         if (!result.hasErrors())
         {
             bidListService.save(bid);
             model.addAttribute("bidLists", bidListService.getAll());
-            System.out.println("/bidList/validate OK");
             return "redirect:/bidList/list";
         }
         System.out.println("/bidList/validate ERROR");
@@ -63,7 +61,7 @@ public class BidListController
     }
 
     @GetMapping("/bidList/update/{id}")
-    public String showUpdateForm(@PathVariable("id") Integer id, Model model)
+    public String showBidUpdateForm(@PathVariable("id") Integer id, Model model)
     {
         BidList bidList = bidListService.getById(id);
         model.addAttribute("bidList", bidList);
